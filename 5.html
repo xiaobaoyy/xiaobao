@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="box">
+  <select v-model="type">
+    <option value="">请选择种类</option>
+    <option>手机</option>
+    <option>平板电脑</option>
+    <option>笔记本</option>
+  </select>
+</div>
+</body>
+<script type="text/javascript">
+  var vm=new Vue({
+    el:'#box',
+    data:{
+      type:''
+    }
+  })
+</script>
+</html>

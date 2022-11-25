@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  #box{
+    display: block;
+    overflow: hidden;
+  }
+</style>
+<script src="JS/vue.js"></script>
+<body>
+<div id="box">
+  <input type="text" v-model="border">
+  <P><img width="200" src="img/line.jpg" v-set-border="border"></P>
+</div>
+</body>
+<script type="text/javascript">
+  new Vue({
+    el:'#box',
+    data:{
+      border:''
+    },
+    directives:{
+      setBorder:{
+        update:function (el,binding){
+          el.border=binding.value;
+        }
+      }
+    }
+  })
+</script>
+</html>

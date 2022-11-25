@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="box">
+    <input type="checkbox" v-model="toggle" :true-value="yes" :false-value="no">
+
+    <label for="checkbox">当前状态：{{toggle}}</label>
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#box',
+        data: {
+            toggle: '',
+            yes: '选中',
+            no: '取消'
+        }
+    });
+</script>
+</html>

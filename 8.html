@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="box">
+  <input type="radio" :value="sexObj.man" v-model="sex" id="man">
+  <label for="man">男</label>
+  <input type="radio" :value="sexObj.woman" v-model="sex" id="wuman">
+  <label for="wuman">女</label>
+  <p>您的性别为：{{sex}}</p>
+</div>
+</body>
+<script type="text/javascript">
+  new Vue({
+    el:'#box',
+    data:{
+      sex:'',
+      sexObj:{man:'男',woman:'女'}
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="example">
+  <label>选择字体的大小：</label>
+    <select v-model="size">
+      <option value="20px">20px</option>
+      <option value="30px">30px</option>
+      <option value="40px">40px</option>
+      <option value="50px">50px</option>
+      <option value="60px">60px</option>
+    </select>
+  <p v-font-size="size">天生我才必有用</p>
+</div>
+</body>
+<script type="text/javascript">
+  var vm=new Vue({
+    el:'#example',
+    data:{
+      size:'20px'
+    },
+    directives:{
+      fontSize:function (el,binding){
+        el.style.fontSize=binding.value;
+      }
+    }
+  })
+</script>
+</html>

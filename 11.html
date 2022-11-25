@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市区三级联动下拉菜单</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="box">
+    <select v-model="province">
+        <option value="">请选择</option>
+        <option v-for="item in provinces" v-bind:value="item">{{item}}</option>
+    </select>
+    <select v-model="city">
+        <option value="">请选择</option>
+        <option v-for="item in citys" v-bind:value="item">{{item}}</option>
+    </select><select v-model="district">
+    <option value="">请选择</option>
+    <option v-for="item in districts" v-bind:value="item">{{item}}</option>
+</select>
+</div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#box",
+        data: {
+            province: '',//省份
+            city: '',//城市
+            district: '',//地区
+            addressData: {
+                '黑龙江省': {
+                    '哈尔滨市': {
+                        "道里区": {},
+                        "南岗区": {}
+                    },
+                    '齐齐哈尔市': {
+                        '龙沙区': {},
+                        '建华区': {}
+                    }
+                },
+                '吉林省': {
+                    '长春市': {
+                        '朝阳区': {},
+                        '南关区': {}
+                    },
+                    '吉林市': {
+                        '船营区': {},
+                        '龙潭区': {}
+                    }
+                },
+                '辽宁省': {
+                    '沈阳市': {
+                        '和平区': {},
+                        '沈河区': {}
+                    },
+                    '大连市': {
+                        '中山区': {},
+                        '金州区': {}
+                    }
+                }
+            }
+        },
+        watch: {
+            province: function (newValue, oldValue) {
+                if (newValue !== oldValue) {
+                    this.city = '';
+                }
+            },
+            city: function (newValue, oldValue) {
+                if (newValue !== oldValue) {
+                    this.district = "";
+                }
+            }
+        },
+        computed: {
+            provinces: function () {//获取省份数组
+                if (!this.addressData) {
+                    return;
+                }
+                var pArr = [];
+                for (var key in this.addressData) {
+                    pArr.push(key);
+                }
+                return pArr;
+            },
+            citys: function () {//获取选择省份对应的城市数组
+                if (!this.addressData || !this.province) {
+                    return;
+                }
+                var cArr = [];
+                for (var key in this.addressData[this.province]) {
+                    cArr.push(key);
+                }
+                return cArr;
+            },
+            districts: function () {//获取选择城市对应的地区数组
+                if (!this.addressData || !this.city) {
+                    return;
+                }
+                var dArr = [];
+                for (var key in this.addressData[this.province][this.city]) {
+                    dArr.push(key);
+                }
+                return dArr;
+            }
+        }
+    })
+</script>
+</html>

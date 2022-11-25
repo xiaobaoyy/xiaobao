@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>为图片添加和去除边框</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="example">
+  <img v-bind:src="url" v-on:mouseover="addBorder" v-on:mouseout="removeBorder">
+</div>
+</body>
+<script type="text/javascript">
+  var vm=new Vue({
+    el:'#example',
+    data:{
+      url:'img/mr.gif'
+    },
+    methods:{/*event.target始终指向事件发生时的元素。*/
+      addBorder:function (e){
+        e.target.style.border='1px solid green';
+      },
+      removeBorder:function (e){
+        e.target.style.border=0;
+      }
+    }
+  })
+</script>
+</html>

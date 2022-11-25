@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="JS/vue.js"></script>
+</head>
+<style>
+  img{
+    position: absolute;
+  }
+</style>
+<body>
+<div id="box">
+  <img src="img/banner.jpg" v-move>
+</div>
+</body>
+<script type="text/javascript">
+  var vm=new Vue({
+    el:'#box',
+    directives:{
+      move:function (el){
+        el.onmousedown=function (e){
+          var initX=el.offsetLeft;
+          var initY=ew.offsetTop;
+          var offsetX=e.clientX-initX;
+          var offsetY=e.clientY-initY;
+          document.onmousemove=function (e){
+            var x=e.clientX-offsetX;
+            var y=e.clientY-offsetY;
+            var maxX=document.documentElement.clientWidth-el.offsetWidth;
+            var maxY=document.documentElement.clientHeight-el.offsetHeight;
+          }
+        }
+      }
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="box">
+  <p>选择喜欢的影片类型</p>
+  <label>
+    <select v-model="filmtype" multiple="multiple" size="6">
+      <option>武侠片</option>
+      <option>爱情片</option>
+      <option>动作片</option>
+      <option>科幻片</option>
+      <option>喜剧片</option>
+      <option>恐怖片</option>
+    </select>
+  </label>
+  <P>选择的类型：{{filmtype}}</P>
+</div>
+</body>
+<script type="text/javascript">
+  new Vue({
+    el:'#box',
+    data:{
+      filmtype:''
+    }
+  });
+</script>
+</html>
