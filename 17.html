@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="JS/vue.js"></script>
+<body>
+<div id="example">
+    <my-component v-on:click.native="openDialog"></my-component>
+</div>
+</body>
+<script type="text/javascript">
+    Vue.component('my-component', {
+        template: '<div>\
+    <button>单击按钮弹出对话框</button>\
+    </div>'
+    })
+    var vm = new Vue({
+        el: '#example',
+        methods: {
+            openDialog: function () {
+                alert("欢迎访问本网站");
+            }
+        }
+    })
+
+</script>
+</html>
